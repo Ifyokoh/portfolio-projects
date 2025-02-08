@@ -1,0 +1,15 @@
+Flask == 2.0.3
+pandas
+numpy
+matplotlib
+transformers
+tweepy==4.6.0
+torch==1.10.2
+psycopg2-binary==2.9.3
+python-dotenv==0.19.2
+SQLAlchemy==1.4.31
+elasticsearch
+
+
+//the best_model_state_e10.bin to large to upload
+//postgresql-42.3.3.jar need to be downloaded and installed

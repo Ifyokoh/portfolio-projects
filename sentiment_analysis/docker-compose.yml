@@ -1,0 +1,101 @@
+version: "3"
+services:
+  # db:
+  #   image: "postgres:14"
+  #   container_name: ${CONTAINER_NAME:-db}
+  #   ports:
+  #     - "5432:5432"
+  #   env_file:
+  #   - ./.env
+  #   environment:
+  #     POSTGRES_USER: "${POSTGRES_USER}"
+  #     POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+  #     POSTGRES_DB: "${POSTGRES_DB}"
+  #     POSTGRES_HOST: "${POSTGRES_HOST}"
+  #     POSTGRES_PORT: "${POSTGRES_PORT}"
+      
+  #   healthcheck:
+  #     test:
+  #       [
+  #         "CMD",
+  #         "pg_isready",
+  #         "-U",
+  #         "${POSTGRES_USER}",
+  #         "-d",
+  #         "${POSTGRES_DB}"
+  #       ]
+  #     interval: 5s
+  #     retries: 5
+  #   restart: always
+  #   volumes:
+  #         - ./postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - flask_network
+
+  elasticsearch:
+    container_name: es-container
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.1
+    environment:
+      - xpack.security.enabled=false
+      - "discovery.type=single-node"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    networks:
+      - flask_network
+    ports:
+      - 9201:9200
+
+
+  kibana:
+    container_name: kb-container
+    image: docker.elastic.co/kibana/kibana:7.17.1
+    environment:
+      - ELASTICSEARCH_HOSTS=http://es-container:9200
+    networks:
+      - flask_network
+    depends_on:
+      - elasticsearch
+    ports:
+      - 5602:5601
+    
+
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    # depends_on:
+    #   - db
+    networks:
+      - flask_network 
+
+
+  # logstash:
+  #   # build: .
+  #   image: docker.elastic.co/logstash/logstash:7.17.1
+  #   restart: always
+  #   environment:
+  #     - CONNECTION_STRING=jdbc:postgresql://localhost:5432/sentiments
+  #     - DB_USER=flask
+  #     - DB_PASSWORD=flask
+  #   volumes:
+  #     - ./logstash.conf:/usr/share/logstash.conf
+  #     # - /apps/logstash/postgresql-42.2.22.jar:/usr/share/postgresql-42.3.3.jar
+  #   command: logstash -f /usr/share/logstash.conf
+  #     # - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+  #     # - /apps/logstash/data:/usr/share/logstash/data
+  #     # - /apps/logstash/postgresql-42.2.22.jar:/usr/share/logstash/postgresql-42.3.3.jar
+  #   depends_on:
+  #     - db
+  #   networks: 
+  #     - flask_network
+  
+
+volumes:
+    postgres_data: null
+
+networks:
+    flask_network: null
+
+      
+       
