@@ -131,7 +131,7 @@ def news():
         start_time = request.form['start']
         end_time = request.form['end']
         
-        url = ('https://newsapi.org/v2/everything?q=' + hashtag + '&from=' + start_time + '&to=' + end_time + '&sortBy=popularity&apiKey=34c1c3ee346c45d2a82088d58245b74c')
+        url = ('https://newsapi.org/v2/everything?q=' + hashtag + '&from=' + start_time + '&to=' + end_time + '&sortBy=popularity&apiKey=xxxxx')
         response = requests.get(url)
         data = response.json()
 
