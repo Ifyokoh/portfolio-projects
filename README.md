@@ -8,7 +8,7 @@ This repository contains a selection of my projects that highlight my skills in 
 
 | Project Name | Description | Tech Stack | Live Demo |
 |-------------|------------|------------|-----------|
-| **[Project 1 Name]** | Brief summary of what it does | `Python, Flask, PostgreSQL` | [🔗 Demo](#) |
+| **[ETL-pipeline]** | Automated ETL (Extract, Transform, Load) pipeline | `Python, Airflow, Docker PostgreSQL` | [🔗 Demo](https://github.com/Ifyokoh/portfolio-projects/tree/main/ETL-pipeline) |
 | **[Project 2 Name]** | Another brief summary | `React, Node.js, MongoDB` | [🔗 Demo](#) |
 | **[Project 3 Name]** | Another cool project | `Django, Docker, AWS` | [🔗 Demo](#) |
 
