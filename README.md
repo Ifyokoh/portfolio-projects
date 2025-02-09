@@ -1,7 +1,5 @@
 # **🚀 Portfolio Projects**  
-_A showcase of my projects._  
-
-## **📌 About This Repository**  
+ 
 This repository contains a selection of my projects that highlight my skills in data science and machine learning.
 
 ## **📁 Projects Overview**  
