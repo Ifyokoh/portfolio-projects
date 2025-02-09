@@ -39,7 +39,12 @@ This will start up Flask API, Elasticsearch database and Kibana dashboard
 ## **Project Structure**
 ```
 sentiment_analysis/
+|- template/
+| |- index.html              # main page/twitter page of web app
+| |- news.html              # news page of web app
+| |- results.html            # classification result page of web app
 │── app.py                   # Flask API for sentiment analysis
+|── dockerfile               # Dockerfile for app setup
 │── docker-compose.yml       # Docker configuration
 │── requirements.txt         # Python dependencies
 ```
