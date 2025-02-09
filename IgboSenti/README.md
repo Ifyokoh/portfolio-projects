@@ -13,7 +13,7 @@ This approach can be adapted for domain-specific tasks such as analyzing custome
 - Web Scraping & Data Annotation – data collection by scraping using BeautifulSoup & Requests
 - Data Preprocessing and analysis using python and pandas 
 - Fine-Tuned AI Model – Tailored for sentiment analysis using Pytorch  
-- The manually annotated [dataset]([Ifyokoh/IgboSenti-BBC](https://huggingface.co/datasets/Ifyokoh/IgboSenti-BBC)) and The trained [model]([Ifyokoh/Igbo-sentiment-bbc](https://huggingface.co/Ifyokoh/Igbo-sentiment-bbc) can be loaded directly from the Hugging Face 
+- The manually annotated [dataset](https://huggingface.co/datasets/Ifyokoh/IgboSenti-BBC) and The trained [model](https://huggingface.co/Ifyokoh/Igbo-sentiment-bbc) can be loaded directly from the Hugging Face 
 
 
 
